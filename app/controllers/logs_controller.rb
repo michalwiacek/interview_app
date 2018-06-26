@@ -18,7 +18,7 @@ class LogsController < ApplicationController
   end
 
   def update
-    if @company.update(log_params)
+    if @log.update(log_params)
       redirect_to log_path
     else
       redirect_to root_path
@@ -39,6 +39,6 @@ class LogsController < ApplicationController
         :name,
         :description,
         :status,
-        {log_comment_attributes: [:log_id, :comment] })
+        {log_comments_attributes: [:comment, :log_id] })
     end
 end
