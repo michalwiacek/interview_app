@@ -28,6 +28,7 @@ gem 'high_voltage'
 gem 'jquery-rails'
 gem 'slim-rails'
 group :development do
+  gem 'rubocop'
   gem 'better_errors'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
@@ -41,3 +42,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
+
+gem 'aasm'

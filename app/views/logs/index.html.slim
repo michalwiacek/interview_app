@@ -17,4 +17,4 @@ table.table
         td
           = link_to "Show", log_path(log), class: 'btn btn-info'
         td
-          = link_to "Close", 'TODO', class: 'btn btn-danger' unless log.closed?
+          = link_to "Close", log_path(log) , method: :put, class: 'btn btn-danger' unless log.closed?
