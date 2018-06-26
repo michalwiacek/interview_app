@@ -11,10 +11,18 @@ class LogsController < ApplicationController
   def new
     @log = Log.new
   end
-
-  def update
+  def close
+    @log = Log.find(params[:log_id])
     @log.close!
     redirect_to root_path
+  end
+
+  def update
+    if @company.update(log_params)
+      redirect_to log_path
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -30,7 +38,7 @@ class LogsController < ApplicationController
       params.require(:log).permit(
         :name,
         :description,
-        :status
+        :status,
         {log_comment_attributes: [:log_id, :comment] })
     end
 end

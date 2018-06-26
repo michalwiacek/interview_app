@@ -5,8 +5,15 @@ class LogCommentsController < ApplicationController
   end
 
   def create
-    @log_comment = LogComment.new(log_comment_params)
-    @log_comment.save
+    @log = Log.find(params[:log_id])
+    @log_comment = @log.log_comments.create(log_comment_params)
+    unless @log.close?
+      if @log_comment.save
+        redirect_to @log
+      else
+        flash.now[:danger] = "error"
+      end
+    end
   end
   private
     def log_comment_params
