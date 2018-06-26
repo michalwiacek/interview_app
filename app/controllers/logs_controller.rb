@@ -1,5 +1,5 @@
 class LogsController < ApplicationController
-  before_action :set_log, only: [:show, :update,]
+  before_action :set_log, only: [:show, :update ]
 
   def index
     @logs = Log.all
@@ -22,6 +22,7 @@ class LogsController < ApplicationController
   end
 
   private
+
     def set_log
       @log ||= Log.find(params[:id])
     end
