@@ -1,5 +1,5 @@
 class LogsController < ApplicationController
-  before_action :set_log, only: [:show, :update ]
+  before_action :set_log, only: %I[show update]
 
   def index
     @logs = Log.all
@@ -25,5 +25,12 @@ class LogsController < ApplicationController
 
     def set_log
       @log ||= Log.find(params[:id])
+    end
+    def log_params
+      params.require(:log).permit(
+        :name,
+        :description,
+        :status
+        {log_comment_attributes: [:log_id, :comment] })
     end
 end

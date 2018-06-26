@@ -21,4 +21,4 @@ table.table
 
 
 
-= link_to "New comment", "TODO", class: 'btn btn-success'
+= link_to "New comment", new_log_log_comment_path(@log), class: 'btn btn-success' unless @log.closed?

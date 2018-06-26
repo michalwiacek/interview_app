@@ -11,7 +11,8 @@ class Log < ApplicationRecord
   end
 
   has_many :log_comments
-
+  accepts_nested_attributes_for :log_comments
+  
   validates :description, presence: true
   validates :name, uniqueness: true, presence: true
   validates :status, inclusion: { in: %w[new closed] }, presence: true
