@@ -1,4 +1,5 @@
-= form_for(@log) do |f|
-  = f.fields_for :log_comments do |comment|
-    = comment.text_area :comment 
-  = f.submit
+= form_for([@log, @log_comment]) do |f|
+  .field
+    = f.text_area :comment 
+  .actions
+    = f.submit
