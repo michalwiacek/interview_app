@@ -1,0 +1,20 @@
+table.table
+  thead
+    tr
+      th scope="col" #
+      th scope="col" Name
+      th scope="col" Description
+      th scope="col" Status
+      th scope="col"
+      th scope="col"
+  tbody
+    - @logs.each do |log|
+      tr
+        td = log.id
+        td = log.name
+        td = log.description
+        td = log.status
+        td
+          = link_to "Show", log_path(log), class: 'btn btn-info'
+        td
+          = link_to "Close", 'TODO', class: 'btn btn-danger' unless log.closed?
